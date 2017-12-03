@@ -4,6 +4,7 @@ typedef struct {
 	char* value;
 } hashTableItem;
 
+// Hashtable itself
 typedef struct {
 	int size;
 	int itemCount;

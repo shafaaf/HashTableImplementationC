@@ -1,8 +1,18 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "hashTable.h"
 
+#define HASHTABLESIZE 53
+
+/* 
+	Todo:
+	- Add in static keyword to those methods not used outside this function
+*/
+
 // Allocation
-static hashTableItem* allocateNewItem (const char* key, const char* value) {
+hashTableItem* allocateNewItem (const char* key, const char* value) {
+	printf("Allocating new item.\n");
 	hashTableItem* newItem = malloc(sizeof(hashTableItem));
 	newItem->key = strdup(key);
 	newItem->value = strdup(value);
@@ -11,11 +21,12 @@ static hashTableItem* allocateNewItem (const char* key, const char* value) {
 }
 
 hashTable* allocateNewTable() {
+	printf("Allocating new hash table.\n");
 	hashTable* myTable = malloc(sizeof(hashTable));
-	myTable->size = 53;
+	myTable->size = HASHTABLESIZE;
 	myTable->itemCount = 0;
 	// A NULL entry in the bucket array indicates that it is empty
-	myTable->items = (hashTableItem*) calloc(53, (sizeof(hashTableItem*)));;
+	myTable->items = calloc(HASHTABLESIZE, (sizeof(hashTableItem*)));;
 	return myTable;
 }
 
@@ -30,8 +41,11 @@ void deleteItem(hashTableItem* myItem) {
 
 void deleteHashTable(hashTable* myTable) {
 	int i;
-	for(i = 0; i<53; i++) {	// Delete all item objects
-		deleteItem(myTable->items[i]);
+	for(i = 0; i<HASHTABLESIZE; i++) {	// Delete all item objects
+		hashTableItem* item = myTable->items[i];
+		if(item != NULL) {
+			deleteItem(item);
+		}
 	}
 	free(myTable->items);	// Delete the array of pointers to items object
 	free(myTable);	// Delete struct object
@@ -39,8 +53,8 @@ void deleteHashTable(hashTable* myTable) {
 }
 
 int main (void) {
-   hashTableItem* myItem = allocateNewItem("1", "2");
-   hashTable* myTable = allocateNewTable();
+   // hashTable* myTable = allocateNewTable();
+   // hashTableItem* myItem = allocateNewItem("1", "2");
    return 0;
 }
 
