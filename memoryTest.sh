@@ -1,2 +1,2 @@
 #!/bin/sh
-valgrind --tool=memcheck program_name
+valgrind --tool=memcheck ./hashTable

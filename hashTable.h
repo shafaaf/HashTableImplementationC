@@ -10,3 +10,8 @@ typedef struct {
 	int itemCount;
 	hashTableItem** items;
 } hashTable;
+
+hashTableItem* allocateNewItem (const char* key, const char* value);
+hashTable* allocateNewTable();
+void deleteItem(hashTableItem* myItem);
+void deleteHashTable(hashTable* myTable);

@@ -1,14 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "hashTable.h"
 
 #define HASHTABLESIZE 53
-
-/* 
-	Todo:
-	- Add in static keyword to those methods not used outside this function
-*/
 
 // Allocation
 hashTableItem* allocateNewItem (const char* key, const char* value) {
@@ -16,7 +12,7 @@ hashTableItem* allocateNewItem (const char* key, const char* value) {
 	hashTableItem* newItem = malloc(sizeof(hashTableItem));
 	newItem->key = strdup(key);
 	newItem->value = strdup(value);
-	printf("===Item details===\n%s:%s\n", key, value);
+	printf("===Item details===\n%s:%s\n", newItem->key, newItem->value);
 	return newItem;
 }
 
@@ -50,12 +46,6 @@ void deleteHashTable(hashTable* myTable) {
 	free(myTable->items);	// Delete the array of pointers to items object
 	free(myTable);	// Delete struct object
 	return;
-}
-
-int main (void) {
-   // hashTable* myTable = allocateNewTable();
-   // hashTableItem* myItem = allocateNewItem("1", "2");
-   return 0;
 }
 
 // typedef struct {
