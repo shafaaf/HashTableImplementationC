@@ -23,16 +23,14 @@ int getHash(const char* s, const int num_buckets, const int attempt) {
 
 // Allocation
 hashTableItem* allocateNewItem (const char* key, const char* value) {
-	printf("Allocating new item.\n");
 	hashTableItem* newItem = malloc(sizeof(hashTableItem));
 	newItem->key = strdup(key);
 	newItem->value = strdup(value);
-	printf("===Item details===\n%s:%s\n\n", newItem->key, newItem->value);
+	//printf("===Item details===\n%s:%s\n\n", newItem->key, newItem->value);
 	return newItem;
 }
 
 hashTable* allocateNewTable() {
-	printf("Allocating new hash table.\n");
 	hashTable* myTable = malloc(sizeof(hashTable));
 	myTable->size = HASHTABLESIZE;
 	myTable->itemCount = 0;
