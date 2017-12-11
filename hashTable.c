@@ -5,8 +5,6 @@
 
 #include "hashTable.h"
 
-#define HASHTABLESIZE 53
-
 int hashFunction(const char* s, const int a, const int m) {
     long hash = 0;
     const int len_s = strlen(s);

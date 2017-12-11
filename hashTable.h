@@ -25,4 +25,5 @@ void deleteHashTable(hashTable* myTable);
 
 
 //api calls
+void print_ht(hashTable* myHashtable);
 void ht_insert(hashTable* myHashtable, const char* key, const char* value);
