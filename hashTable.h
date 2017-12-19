@@ -1,6 +1,3 @@
-#define HT_PRIME_1 89
-#define HT_PRIME_2 97
-
 #define HASHTABLESIZE 53
 
 // Item in hash table
@@ -16,14 +13,11 @@ typedef struct {
 	hashTableItem** items;
 } hashTable;
 
-int hashFunction(const char* s, const int a, const int m);
-int getHash(const char* s, const int num_buckets, const int attempt);
 hashTableItem* allocateNewItem (const char* key, const char* value);
 hashTable* allocateNewTable();
 void deleteItem(hashTableItem* myItem);
 void deleteHashTable(hashTable* myTable);
 
-
-//api calls
+//Api calls
 void print_ht(hashTable* myHashtable);
 void ht_insert(hashTable* myHashtable, const char* key, const char* value);

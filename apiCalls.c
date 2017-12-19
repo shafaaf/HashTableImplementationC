@@ -4,6 +4,8 @@
 #include <math.h>
 
 #include "hashTable.h"
+#include "prime.h"
+
 
 // // Item in hash table
 // typedef struct {
