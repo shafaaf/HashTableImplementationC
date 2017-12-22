@@ -13,6 +13,7 @@ typedef struct {
 	hashTableItem** items;
 } hashTable;
 
+
 hashTableItem* allocateNewItem (const char* key, const char* value);
 hashTable* allocateNewTable();
 void deleteItem(hashTableItem* myItem);
@@ -21,3 +22,4 @@ void deleteHashTable(hashTable* myTable);
 //Api calls
 void print_ht(hashTable* myHashtable);
 void ht_insert(hashTable* myHashtable, const char* key, const char* value);
+char* ht_search(hashTable* myHashtable, const char* key);
